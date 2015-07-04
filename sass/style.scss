@@ -1,0 +1,764 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "media-queries";
+@import "../css/fonts.css" screen;
+
+
+
+$color-blue: #76c7c0;
+$color-white:#fff;
+$color-green1:#60a19d;
+$color-green-border:#518c88;
+$color-red1:#e86458;
+$color-red-podmenu:#f27b74;
+$color-red-border:#e2544a;
+$color-h:#7f8c8c;
+$color-p:#777;
+$coloor-block2-border:#e5e6e6;
+$color-footer-h:#3b6360;
+
+$background-slide1:#7f8c8c;
+$background-slide2:#1f4b4b;
+$background-text-slide:#3f4646;
+$background-block1:#ececec;
+$background-block2:#f8f8f8;
+$background-footer:#6ab3ac;
+
+p{
+  font: 13px/20px "OpenSansRegular";
+  color: $color-p;
+}
+.menu-block{
+  min-height: 80px;
+  background: $color-blue url("../img/path.png") repeat-x;
+}
+.navbar-brand{
+  margin: 0;
+  padding-left: 6px;
+  padding-top: 22px;
+  font: 30px/30px "MyriadProBold";
+  color: $color-white;
+
+  &:hover{
+    color: $color-white;
+  }
+}
+#myNavbar {
+  float: right;
+  font: 13px/13px "OpenSansSemiBold";
+  text-transform: uppercase;
+
+  .active a{
+    text-decoration: none;
+    background-color: $color-green1;
+    border-top: 1px solid $color-green-border;
+    border-left: 1px solid $color-green-border;
+    border-right: 1px solid $color-green-border;
+    border-bottom: 3px solid $color-green-border;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+
+    &:hover{
+      background-color: $color-red1;
+      border-top: 1px solid #e2544a;
+      border-left: 1px solid #e2544a;
+      border-right: 1px solid #e2544a;
+      border-bottom: 3px solid #e2544a;
+    }
+  }
+
+  .navbar-nav > li > a{
+    margin-right: 23px;
+    color: $color-white;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    text-transform: uppercase;
+
+  }
+  @include max-screen(992px){
+    .navbar-nav > li > a{
+      margin-right: 0;
+    }
+  }
+  @include max-screen(768px){
+    float: none;
+    background: $color-blue;
+    padding-top: 20px;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+.navbar-toggle{
+  margin: 20px 0 25px 0;
+  border-color: $color-white;
+  span{
+    color: $color-white;
+    background: $color-white;
+  }
+}
+//выпадающее меню
+.sub-nav {
+  position: absolute;
+  border-top: 10px solid transparent;
+  left: -9999px;
+  list-style:none;
+  padding:0;
+  z-index: 999;
+}
+.nav li:hover .sub-nav {left: 0;}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid $color-red1;
+  position: absolute;
+  margin-top: 5px;
+  left: -9999px;
+}
+.nav li:hover .triangle {left: 10px;}
+
+.sub-nav{
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+
+  li {
+    width: 200px;
+    padding: 5px;
+    white-space: nowrap;
+    background: $color-red1;
+    text-transform: none;
+
+    &:nth-child(1){
+      margin-bottom: -5px;
+      border-top-right-radius: 5px;
+         -moz-border-top-right-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+           -o-border-top-right-radius: 5px;
+          -ms-border-top-right-radius: 5px;
+
+      border-top-left-radius: 5px;
+         -moz-border-top-left-radius: 5px;
+      -webkit-border-top-left-radius: 5px;
+           -o-border-top-left-radius: 5px;
+          -ms-border-top-left-radius: 5px;
+    }
+    &:last-child{
+      margin-top: -5px;
+      border-bottom-right-radius: 5px;
+         -moz-border-bottom-right-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+           -o-border-bottom-right-radius: 5px;
+          -ms-border-bottom-right-radius: 5px;
+
+      border-bottom-left-radius: 5px;
+         -moz-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px;
+           -o-border-bottom-left-radius: 5px;
+          -ms-border-bottom-left-radius: 5px;
+    }
+
+    a{
+      display: inline-block;
+      padding: 7px 0 7px 10px;
+      width: 100%;
+      outline: none;
+      font: 13px/15px "OpenSansSemiBold";
+      text-align: left;
+      background: $color-red-podmenu;
+      color: $color-white;
+
+      border-radius: 3px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -o-border-radius: 3px;
+      -ms-border-radius: 3px;
+
+      &:hover{
+        text-decoration: none;
+        background: $color-blue;
+      }
+    }
+  }
+}
+
+.sub-nav li a
+.sub-nav li:last-child{padding-bottom: 10px;}
+
+.nav > li:hover > a {
+  background-color: $color-red1;
+  border-top: 1px solid $color-red-border;
+  border-left: 1px solid $color-red-border;
+  border-right: 1px solid $color-red-border;
+  border-bottom: 3px solid $color-red-border;
+
+         border-radius: 5px;
+     -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+       -o-border-radius: 5px;
+      -ms-border-radius: 5px;
+}
+//выпадающее меню end
+.search{
+  margin-top: 30px;
+  float: right;
+  width: 22px;
+  height: 1.4em;
+  text-align: right;
+
+  a{
+    color: $color-white;
+    &:hover{
+      color: $color-white;
+    }
+  }
+
+  @include max-screen(768px){
+    float: none;
+    text-align: center;
+    margin: 10px auto;
+  }
+}
+//Слайдер
+#myCarousel{
+  text-align: center;
+  @include max-screen(768px){
+    margin-top: -20px;
+  }
+}
+.slide1{
+  width: 100%;
+  height: 500px;
+
+  background: $background-slide1;
+}
+.slide2{
+  @extend .slide1;
+  background: $background-slide2;
+}
+.logo-slide{
+  margin-top: 160px;
+  display: inline-block;
+  background: $color-red1;
+
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+
+  h3{
+    padding: 0 110px 3px 110px;
+    font: 50px/50px "MyriadProBold";
+    color: $color-white;
+
+    @include max-screen(450px){
+      padding: 0 50px 3px 50px;
+      font: 40px/40px "MyriadProBold";
+    }
+  }
+}
+.text-slide{
+  display: inline-block;
+  margin-top: 10px;
+  max-width: 470px;
+  background: $background-text-slide;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+
+  p{
+    font: 16px/24px "OpenSansRegular";
+    padding: 10px 38px 12px 38px;
+    color: $color-white;
+  }
+  @include max-screen(450px){
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+.block1{
+  min-height: 100px;
+  background: $background-block1;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+
+  h1{
+    padding-left: 25px;
+    padding-top: 20px;
+    padding-bottom: 6px;
+    font: 30px/36px "OpenSansSemiBold";
+    color: $color-h;
+  }
+  p{
+    padding-left: 25px;
+  }
+}
+.btn-more{
+  display: inline-block;
+  height: 52px;
+  width: 200px;
+  margin-top: 25px;
+  padding-top: 14px;
+  text-align: center;
+  background-color: $color-red1;
+  color: $color-white;
+  font: 20px/20px "OpenSansSemiBold";
+  border-top: 1px solid $color-red-border;
+  border-left: 1px solid $color-red-border;
+  border-right: 1px solid $color-red-border;
+  border-bottom: 4px solid $color-red-border;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+
+  &:hover{
+    text-decoration: none;
+    color: $color-white;
+    background: $color-red-border;
+  }
+  @include max-screen(992px){
+    margin-bottom: 25px;
+  }
+}
+.block2{
+  margin-top: 52px;
+  margin-bottom: 50px;
+
+  @include max-screen(1200px) {
+    text-align: center;
+  }
+
+  &.block2-more-2:nth-child(4){
+    display: none;
+  }
+}
+
+
+
+.block2-more {
+  display: inline-block;
+  width: 270px;
+  height: 312px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background: $color-white;
+  text-align: center;
+  border-bottom: 5px solid $coloor-block2-border;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+
+  i {
+    margin-top: 48px;
+    margin-bottom: 12px;
+    color: $color-red1;
+  }
+  h4 {
+    margin-bottom: 28px;
+    font: 16px/16px "OpenSansExtraBold";
+    color: $color-h;
+  }
+  p{
+    min-height: 8em;
+  }
+  @include max-screen(1200px) {
+    margin-bottom: 50px;
+  }
+
+}
+
+.btn2-more{
+  @extend .btn-more;
+  font: 14px/14px "OpenSansSemiBold";
+  padding-top: 18px;
+  margin-top: 10px;
+}
+
+.block2-more-2 {
+  @extend .block2-more;
+  background: $background-block2;
+
+  i{
+    color: $color-blue;
+  }
+}
+.btn2-more-2{
+  @extend .btn2-more;
+  background: $color-blue;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 4px solid $color-green-border;
+
+  &:hover{
+    background: $color-green-border;
+  }
+}
+.center1-block2{
+  padding-left: 7px;
+
+  @include max-screen(1200px) {
+    padding-left: 0;
+  }
+}
+.center2-block2{
+  padding-left: 14px;
+
+  @include max-screen(1200px) {
+    padding-left: 0;
+  }
+}
+.right-block2{
+  text-align: right;
+  @include max-screen(1200px) {
+    text-align: center;
+  }
+}
+//блок 3
+.block3{
+  margin-top: 22px;
+  margin-bottom: 50px;
+  width: 100%;
+  height: 400px;
+  background: $background-block1;
+
+  &:before{
+    content: "";
+    background: url("../img/part-2.png") repeat-x;
+    width: 100%;
+    height: 17px;
+  }
+
+  h2{
+    margin-top: 50px;
+    margin-bottom: 5px;
+    font: 40px/40px "MyriadProBold";
+    color: $color-red1;
+    text-transform: uppercase;
+  }
+  p{
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  @include max-screen(1200px) {
+    height: 315px;
+  }
+}
+.slider2{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+//блок4
+.block4{
+
+  h5{
+    margin-bottom: 33px;
+    font: 16px/20px "OpenSansExtraBold";
+    color: $color-h;
+
+    @include max-screen(1200px) {
+      padding-left: 10px;
+
+    }
+  }
+
+  ul{
+    font: 13px/25px "OpenSansRegular";
+    color: $color-p;
+
+    @include max-screen(1200px) {
+      margin-bottom: 20px;
+      padding-left: 10px;
+    }
+  }
+
+  i{
+    color: $color-red1;
+    font-size: 0.8em;
+  }
+  & div:nth-child(2){
+    p {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    a{
+      color: $color-red1;
+      text-decoration: underline;
+    }
+
+    @include max-screen(1200px) {
+      p {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+  & div:nth-child(3){
+    h5{
+      padding-left: 20px;
+      @include max-screen(1200px) {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  @include max-screen(768px) {
+    text-align: center;
+  }
+}
+
+.diagram{
+  margin-top: 60px;
+
+  h6{
+    margin-top: 22px;
+    font: 16px/16px "OpenSansExtraBold";
+    color: $color-h;
+    text-align: center;
+
+    @include max-screen(768px) {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.diagram1{
+  background: url("../img/diagram1.png") no-repeat center;
+  height: 58px;
+
+  p{
+    padding-top: 30px;
+    font: 30px/30px "OpenSansExtraBold";
+    color: $color-h;
+    text-align: center;
+  }
+}
+.diagram2{
+  @extend .diagram1;
+  background: url("../img/diagram2.png") no-repeat center;
+}
+.diagram3{
+  @extend .diagram1;
+  background: url("../img/diagram3.png") no-repeat center;
+}
+.diagram4{
+  @extend .diagram1;
+  background: url("../img/diagram4.png") no-repeat center;
+}
+
+.block-comment{
+  background: $background-block2;
+  padding: 5px 0 15px 10px;
+
+  p{
+    line-height: 22px;
+  }
+
+  span{
+    font: 13px/22px "OpenSansItalic";
+  }
+}
+
+.after{
+  margin-top: 10px;
+  font: 16px/16px "OpenSansSemiBold";
+  padding-left: 80px;
+}
+
+//блок5
+.block5{
+  min-height: 60px;
+  margin-top: 60px;
+
+  h5{
+    font: 16px/16px "OpenSansExtraBold";
+    color: $color-h;
+    @include max-screen(768px) {
+      padding-left: 10px;
+    }
+  }
+  @include max-screen(768px) {
+    margin-top: 120px;
+  }
+}
+.block5-line{
+  height: 16px;
+  background: url("../img/bg-line.png") center left no-repeat;
+
+  @include max-screen(768px) {
+    display: none;
+  }
+}
+//блок6
+.block6{
+  min-height: 300px;
+  background: $color-blue;
+  width: 100%;
+
+  &:before{
+    content: "";
+    background: url("../img/part-2.png") repeat-x;
+    opacity: 0.3;
+    width: 100%;
+    height: 17px;
+  }
+}
+.block6-content{
+  padding-top: 23px;
+
+  p{
+    color: $color-white;
+  }
+
+  .company{
+    margin-bottom: 25px;
+    padding-left: 5px;
+    font: 20px/32px "OpenSansExtraBold";
+    color: $color-footer-h;
+
+    @include max-screen(768px) {
+      margin-top: 40px;
+    }
+  }
+
+  ul{
+    padding-left: 30px;
+
+    li a{
+      color: $color-white;
+      font: 13px/23px 'OpenSansRegular';
+      cursor: pointer;
+    }
+
+    i{
+      padding-right: 3px;
+    }
+  }
+
+  @include max-screen(768px) {
+    text-align: center;
+  }
+}
+
+.logo-footer{
+  @extend .navbar-brand;
+  padding: 0;
+  margin-bottom: 30px;
+}
+.phone{
+  margin-top: 30px;
+  span{
+    padding-left: 12px;
+    font: 20px/20px "OpenSansSemiBoldItalic";
+  }
+}
+.email{
+  @extend .phone;
+  margin-top: 5px;
+}
+
+.block-comment2{
+  @include max-screen(768px) {
+    margin-bottom: 60px;
+  }
+}
+
+.from-blog {
+  padding-left: 20px;
+  padding-right: 10px;
+  h6 {
+    margin-bottom: 25px;
+    font: 20px/32px "OpenSansExtraBold";
+    color: $color-white;
+
+    span {
+      font: 20px/32px "OpenSansItalic";
+    }
+  }
+
+  img{
+    float: left;
+    padding-right: 15px;
+    margin-bottom: 20px;
+  }
+
+  .data{
+    color: $color-footer-h;
+  }
+  @include max-screen(768px) {
+    margin-top: 60px;
+  }
+}
+.ul-mobil{
+  display: inline-block;
+
+  @include max-screen(768px) {
+    ul li{
+      text-align: left;
+    }
+  }
+}
+
+
+
+//footer
+.footer{
+  padding-left: 10px;
+  padding-right: 10px;
+  min-height: 50px;
+  background: $background-footer;
+
+  p{
+    padding-top: 19px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: $color-white;
+  }
+
+
+}
+.soc-seti{
+  padding-top: 15px;
+  text-align: right;
+  padding-right: 10px;
+
+
+  i{
+    font-size: 1.5em;
+    color: $color-white;
+  }
+
+  a{
+    padding-left: 24px;
+
+
+    @include max-screen(350px) {
+      padding-left: 10px;
+    }
+  }
+}

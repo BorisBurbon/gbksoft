@@ -1,0 +1,94 @@
+
+.dg-container{
+    width: 100%;
+    height: 380px;
+    position: relative;
+}
+.dg-wrapper{
+    width: 550px;
+    height: 360px;
+    margin: 0 auto;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transform: scale(0.9, 0.7);
+
+}
+.dg-center,.dg-transition{
+    margin: 0 auto;
+    transform: scale(1.1, 1.35);
+}
+.dg-wrapper a{
+    width: 482px;
+    height: 360px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.dg-wrapper a.dg-transition{
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.dg-wrapper a img{
+    display: block;
+    padding-top: 20px;
+}
+
+.dg-wrapper a.dg-center div{
+    display: block;
+}
+@media screen and  (max-width:1200px) {
+    .dg-container{
+        height: 200px;
+    }
+    .dg-wrapper {
+        max-width: 300px;
+    }
+    .dg-wrapper a{
+        width: 300px;
+
+    }
+
+    .dg-wrapper a img {
+        max-width: 320px;
+    }
+
+    .dg-wrapper a img {
+        display: block;
+        padding: 0;
+    }
+}
+
+@media screen and  (max-width:768px) {
+    .dg-wrapper {
+        max-width: 200px;
+    }
+    .dg-wrapper a{
+        width: 200px;
+    }
+    .dg-wrapper a img {
+        max-width: 210px;
+    }
+    .dg-wrapper a img {
+        display: block;
+        padding: 0;
+    }
+}
+@media screen and  (max-width:350px) {
+    .dg-wrapper {
+        max-width: 150px;
+    }
+    .dg-wrapper a{
+        width: 150px;
+    }
+    .dg-wrapper a img {
+        max-width: 155px;
+    }
+}
